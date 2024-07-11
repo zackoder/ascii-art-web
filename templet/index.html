@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/pictures/download.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="/css/index.css" />
+  <title>Ascri Art</title>
+</head>
+
+<body>
+  <div class="head_page">
+    <div class="ascii-titel">
+      <h1>Write something</h1>
+    </div>
+    <div class="form_input">
+      <form method="post" action="/ascii-art">
+        <textarea name="user_input" placeholder="put something" required maxlength="1000"></textarea>
+        <br />
+        <div class="range_div">
+
+          {{if .Font}} {{range $i ,$v := .Font}}
+          <div class="radio_input">
+            <input type="radio" name="font" value={{.}} id={{$v}} {{if eq $i 0 }} checked {{end}}>
+            <label for="{{$v}}">{{$v}}</label>
+          </div>
+          {{end}} {{end}}
+        </div>
+
+        <div class="button-div">
+          <button type="submit">Generate ascii</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
